@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>passes</key>
+	<dict>
+		<key>dropPass</key>
+		<dict>
+			<key>draw</key>
+			<string>DRAW_QUAD</string>
+			<key>program</key>
+			<string></string>
+			<key>metalVertexShader</key>
+			<string>dropVertex</string>
+			<key>metalFragmentShader</key>
+			<string>dropFragment</string>
+			<key>inputs</key>
+			<dict>
+				<key>texture</key>
+				<string>COLOR</string>
+				<key>normalTexture</key>
+				<string>normalImage</string>
+			</dict>
+			<key>outputs</key>
+			<dict>
+				<key>color</key>
+				<string>COLOR</string>
+			</dict>
+		</dict>
+	</dict>
+	<key>sequence</key>
+	<array>
+		<string>dropPass</string>
+	</array>
+	<key>symbols</key>
+	<dict>
+		<key>normalImage</key>
+		<dict>
+			<key>type</key>
+			<string>sampler2D</string>
+			<key>image</key>
+			<string>normal.jpg</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
