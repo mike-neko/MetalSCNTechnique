@@ -11,7 +11,8 @@ import QuartzCore
 import SceneKit
 
 class GameViewController: UIViewController {
-
+    @IBOutlet weak private var scnView: SCNView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,9 +24,6 @@ class GameViewController: UIViewController {
         
         // animate the 3d object
         ship.runAction(SCNAction.repeatActionForever(SCNAction.rotateByX(0, y: 2, z: 0, duration: 1)))
-        
-        // retrieve the SCNView
-        let scnView = self.view as! SCNView
         
         // set the scene to the view
         scnView.scene = scene

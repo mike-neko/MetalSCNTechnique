@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A239j" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A254g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BV1-FR-VrT">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -9,13 +9,32 @@
         <scene sceneID="tXr-a1-R10">
             <objects>
                 <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="MetalSCNTechnique" customModuleProvider="target" sceneMemberID="viewController">
-                    <sceneKitView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preferredRenderingAPI="1" id="3se-qz-xqx">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xwW-Ha-sxp"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ayk-Ug-2iE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HhQ-aR-RrW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </sceneKitView>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="enF-1r-ucE">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </sceneKitView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="enF-1r-ucE" secondAttribute="trailing" id="155-OY-iNd"/>
+                            <constraint firstAttribute="bottom" secondItem="enF-1r-ucE" secondAttribute="bottom" id="acd-wu-LUt"/>
+                            <constraint firstItem="enF-1r-ucE" firstAttribute="top" secondItem="HhQ-aR-RrW" secondAttribute="top" id="kY4-A6-PuW"/>
+                            <constraint firstItem="enF-1r-ucE" firstAttribute="leading" secondItem="HhQ-aR-RrW" secondAttribute="leading" id="xGR-XE-ZwY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scnView" destination="enF-1r-ucE" id="Aed-nx-PMW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="iMl-Ys-Clb"/>
             </objects>
         </scene>
     </scenes>
