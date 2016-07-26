@@ -13,8 +13,8 @@
 		0EF8ECE71D35312B00B4F8CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EF8ECE51D35312B00B4F8CE /* Main.storyboard */; };
 		0EF8ECE91D35312B00B4F8CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EF8ECE81D35312B00B4F8CE /* Assets.xcassets */; };
 		0EF8ECEC1D35312B00B4F8CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EF8ECEA1D35312B00B4F8CE /* LaunchScreen.storyboard */; };
-		0EF8ECF41D354B3A00B4F8CE /* technique.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EF8ECF31D354B3A00B4F8CE /* technique.plist */; };
-		0EF8ECF81D354BC700B4F8CE /* normal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0EF8ECF71D354BC700B4F8CE /* normal.jpg */; };
+		0EF8ECF41D354B3A00B4F8CE /* drop.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EF8ECF31D354B3A00B4F8CE /* drop.plist */; };
+		0EF8ECF81D354BC700B4F8CE /* dropNormal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0EF8ECF71D354BC700B4F8CE /* dropNormal.jpg */; };
 		0EF8ECFA1D354BDF00B4F8CE /* drop.metal in Sources */ = {isa = PBXBuildFile; fileRef = 0EF8ECF91D354BDF00B4F8CE /* drop.metal */; };
 /* End PBXBuildFile section */
 
@@ -27,8 +27,8 @@
 		0EF8ECE81D35312B00B4F8CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EF8ECEB1D35312B00B4F8CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0EF8ECED1D35312B00B4F8CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0EF8ECF31D354B3A00B4F8CE /* technique.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = technique.plist; sourceTree = "<group>"; };
-		0EF8ECF71D354BC700B4F8CE /* normal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = normal.jpg; sourceTree = "<group>"; };
+		0EF8ECF31D354B3A00B4F8CE /* drop.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = drop.plist; sourceTree = "<group>"; };
+		0EF8ECF71D354BC700B4F8CE /* dropNormal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dropNormal.jpg; sourceTree = "<group>"; };
 		0EF8ECF91D354BDF00B4F8CE /* drop.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = drop.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,9 +66,9 @@
 				0EF8ECE11D35312B00B4F8CE /* art.scnassets */,
 				0EF8ECE31D35312B00B4F8CE /* GameViewController.swift */,
 				0EF8ECE51D35312B00B4F8CE /* Main.storyboard */,
-				0EF8ECF31D354B3A00B4F8CE /* technique.plist */,
+				0EF8ECF31D354B3A00B4F8CE /* drop.plist */,
 				0EF8ECE81D35312B00B4F8CE /* Assets.xcassets */,
-				0EF8ECF71D354BC700B4F8CE /* normal.jpg */,
+				0EF8ECF71D354BC700B4F8CE /* dropNormal.jpg */,
 				0EF8ECF91D354BDF00B4F8CE /* drop.metal */,
 				0EF8ECEA1D35312B00B4F8CE /* LaunchScreen.storyboard */,
 				0EF8ECED1D35312B00B4F8CE /* Info.plist */,
@@ -134,11 +134,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EF8ECF81D354BC700B4F8CE /* normal.jpg in Resources */,
+				0EF8ECF81D354BC700B4F8CE /* dropNormal.jpg in Resources */,
 				0EF8ECE21D35312B00B4F8CE /* art.scnassets in Resources */,
 				0EF8ECEC1D35312B00B4F8CE /* LaunchScreen.storyboard in Resources */,
 				0EF8ECE91D35312B00B4F8CE /* Assets.xcassets in Resources */,
-				0EF8ECF41D354B3A00B4F8CE /* technique.plist in Resources */,
+				0EF8ECF41D354B3A00B4F8CE /* drop.plist in Resources */,
 				0EF8ECE71D35312B00B4F8CE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
