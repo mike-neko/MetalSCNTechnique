@@ -19,7 +19,7 @@
 				<key>texture</key>
 				<string>COLOR</string>
 				<key>normalTexture</key>
-				<string>normalImage</string>
+				<string>dropNormal</string>
 			</dict>
 			<key>outputs</key>
 			<dict>
@@ -34,12 +34,12 @@
 	</array>
 	<key>symbols</key>
 	<dict>
-		<key>normalImage</key>
+		<key>dropNormal</key>
 		<dict>
 			<key>type</key>
 			<string>sampler2D</string>
 			<key>image</key>
-			<string>normal.jpg</string>
+			<string>dropNormal.jpg</string>
 		</dict>
 	</dict>
 </dict>

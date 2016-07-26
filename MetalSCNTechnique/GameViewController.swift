@@ -42,7 +42,7 @@ class GameViewController: UIViewController {
         scnView.addGestureRecognizer(tapGesture)
         
         
-        let path = NSBundle.mainBundle().pathForResource("technique", ofType: "plist")!
+        let path = NSBundle.mainBundle().pathForResource("drop", ofType: "plist")!
         let technique = SCNTechnique(dictionary: NSDictionary(contentsOfFile: path) as! [String : AnyObject])
         scnView.technique = technique
     }
