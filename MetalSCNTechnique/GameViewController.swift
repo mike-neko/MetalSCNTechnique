@@ -13,6 +13,8 @@ import SceneKit
 class GameViewController: UIViewController {
     @IBOutlet weak private var scnView: SCNView!
     
+    private var techniqueList = [SCNTechnique]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,10 +43,28 @@ class GameViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         scnView.addGestureRecognizer(tapGesture)
         
+        // drop
+        if let drop = loadTechnique("drop") {
+            techniqueList.append(drop)
+        }
+
+        // depth
+        if let depth = loadTechnique("depth") {
+            techniqueList.append(depth)
+        }
         
-        let path = NSBundle.mainBundle().pathForResource("drop", ofType: "plist")!
-        let technique = SCNTechnique(dictionary: NSDictionary(contentsOfFile: path) as! [String : AnyObject])
-        scnView.technique = technique
+        scnView.technique = techniqueList.first
+    }
+    
+    private func loadTechnique(name: String) -> SCNTechnique? {
+        guard let path = NSBundle.mainBundle().pathForResource(name, ofType: "plist"),
+            let dic = NSDictionary(contentsOfFile: path) as? [String : AnyObject] else { return nil }
+        return SCNTechnique(dictionary: dic)
+    }
+    
+    @IBAction private func changeTechnique(sender: UISegmentedControl) {
+        guard techniqueList.indices.contains(sender.selectedSegmentIndex) else { return }
+        scnView.technique = techniqueList[sender.selectedSegmentIndex]
     }
     
     func handleTap(gestureRecognize: UIGestureRecognizer) {

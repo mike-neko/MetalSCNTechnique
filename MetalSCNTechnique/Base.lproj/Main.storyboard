@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Game View Controller-->
@@ -20,11 +21,23 @@
                             <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="enF-1r-ucE">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </sceneKitView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="DBZ-oA-G23">
+                                <rect key="frame" x="20" y="20" width="101" height="29"/>
+                                <segments>
+                                    <segment title="drop"/>
+                                    <segment title="depth"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeTechnique:" destination="BV1-FR-VrT" eventType="valueChanged" id="cmd-Tf-ff2"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="enF-1r-ucE" secondAttribute="trailing" id="155-OY-iNd"/>
+                            <constraint firstItem="DBZ-oA-G23" firstAttribute="top" secondItem="xwW-Ha-sxp" secondAttribute="bottom" id="XEU-mE-SN3"/>
                             <constraint firstAttribute="bottom" secondItem="enF-1r-ucE" secondAttribute="bottom" id="acd-wu-LUt"/>
+                            <constraint firstItem="DBZ-oA-G23" firstAttribute="leading" secondItem="HhQ-aR-RrW" secondAttribute="leadingMargin" id="fLb-fq-Gd5"/>
                             <constraint firstItem="enF-1r-ucE" firstAttribute="top" secondItem="HhQ-aR-RrW" secondAttribute="top" id="kY4-A6-PuW"/>
                             <constraint firstItem="enF-1r-ucE" firstAttribute="leading" secondItem="HhQ-aR-RrW" secondAttribute="leading" id="xGR-XE-ZwY"/>
                         </constraints>
