@@ -39,13 +39,9 @@ vertex VertexOut depthVertex(VertexInput in [[ stage_in ]],
 
 fragment half4 depthFragment(VertexOut in [[ stage_in ]],
                             texture2d<float, access::sample> colorSampler [[ texture(0) ]],
-                            texture2d<float, access::sample> depthSampler [[ texture(1) ]]) {
-    constexpr sampler repeatSampler = sampler(coord::normalized,
-                                              address::repeat,
-                                              filter::linear);
+                            depth2d<float> depthSampler [[ texture(1) ]]) {
+    constexpr sampler defaultSampler;
 
-    auto out = depthSampler.sample(repeatSampler, in.texcoord);
-    out.g = out.b = out.r;
-    out.a = 1;
-    return half4(out);
+    auto out = half(depthSampler.sample(defaultSampler, in.texcoord));
+    return half4(out, out, out, 1);
 }
