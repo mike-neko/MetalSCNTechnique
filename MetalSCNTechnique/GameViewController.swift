@@ -13,22 +13,29 @@ import SceneKit
 class GameViewController: UIViewController {
     @IBOutlet weak private var scnView: SCNView!
     
-    private var techniqueList = [SCNTechnique]()
+    private struct SceneData {
+        var scene: SCNScene
+        var technique: SCNTechnique
+    }
+    
+    private var sceneList = [SceneData]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
-        
-        // retrieve the ship node
-        let ship = scene.rootNode.childNodeWithName("ship", recursively: true)!
-        
-        // animate the 3d object
-        ship.runAction(SCNAction.repeatActionForever(SCNAction.rotateByX(0, y: 2, z: 0, duration: 1)))
-        
-        // set the scene to the view
-        scnView.scene = scene
+        // drop
+        if let scene = SCNScene(named: "art.scnassets/ship.scn"), technique = loadTechnique("drop") {
+            if let ship = scene.rootNode.childNodeWithName("ship", recursively: true) {
+                ship.runAction(SCNAction.repeatActionForever(SCNAction.rotateByX(0, y: 2, z: 0, duration: 1)))
+            }
+            
+            sceneList.append(SceneData(scene: scene, technique: technique))
+        }
+ 
+        // depth
+        if let scene = SCNScene(named: "art.scnassets/box.scn"), technique = loadTechnique("depth") {
+            sceneList.append(SceneData(scene: scene, technique: technique))
+        }
         
         // allows the user to manipulate the camera
         scnView.allowsCameraControl = true
@@ -43,17 +50,10 @@ class GameViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         scnView.addGestureRecognizer(tapGesture)
         
-        // drop
-        if let drop = loadTechnique("drop") {
-            techniqueList.append(drop)
-        }
 
-        // depth
-        if let depth = loadTechnique("depth") {
-            techniqueList.append(depth)
-        }
-        
-        scnView.technique = techniqueList.first
+        // set the scene to the view
+        scnView.scene = sceneList[1].scene
+        scnView.technique = sceneList[1].technique
     }
     
     private func loadTechnique(name: String) -> SCNTechnique? {
@@ -63,14 +63,12 @@ class GameViewController: UIViewController {
     }
     
     @IBAction private func changeTechnique(sender: UISegmentedControl) {
-        guard techniqueList.indices.contains(sender.selectedSegmentIndex) else { return }
-        scnView.technique = techniqueList[sender.selectedSegmentIndex]
+        guard sceneList.indices.contains(sender.selectedSegmentIndex) else { return }
+        scnView.scene = sceneList[sender.selectedSegmentIndex].scene
+        scnView.technique = sceneList[sender.selectedSegmentIndex].technique
     }
     
-    func handleTap(gestureRecognize: UIGestureRecognizer) {
-        // retrieve the SCNView
-        let scnView = self.view as! SCNView
-        
+    func handleTap(gestureRecognize: UIGestureRecognizer) {        
         // check what nodes are tapped
         let p = gestureRecognize.locationInView(scnView)
         let hitResults = scnView.hitTest(p, options: nil)
